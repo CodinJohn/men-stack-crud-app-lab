@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= car.model %></title>
+</head>
+<body>
+  <h1><%= car.model %></h1>
+  <h2>Color: <%= car.color %></h2>
+  <h3>Body: <%= car.body %></h3>
+  <% if(car.isOn){ %>
+    <p>This vehicle was left on!</p>
+  <% } else { %>
+    <p>This vehicle is off!</p>
+  <% } %>
+  <form action="/cars/<%=car._id%>?_method=DELETE" method="POST">
+    <button type="submit">
+      Delete <%= car._id %>
+    </button>
+  </form>
+  <a href="/cars/<%= car._id %>/edit">Edit <%= car._id %></a>
+  <a href="/cars">Back to our other cars</a>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit <%=car.model%></title>
+</head>
+<body>
+  <h1>Edit <%= car.model %></h1>
+  <form action="/cars/<%=car._id%>?_method=PUT" method="POST">
+    <label for="model">Car Model:</label>
+    <input type="text" name="model" value="<%= car.model%>" />
+    <label for="color">Color:</label>
+    <input type="text" name="color" value="<%= car.color %>" />
+    <label for="body">Body Type:</label>
+    <input type="text" name="body" value="<%= car.body %>" />
+    <label for="on">Did you leave the car on?</label>
+    <input
+      type="checkbox"
+      name="isOn"
+      <% if (car.isOn) { %>checked<% } %> 
+      />
+    <button type="submit">Update Car</button>
+  </form>
+  <a href="/cars">Back to our other vehicles</a>
+</body>
+</html>
